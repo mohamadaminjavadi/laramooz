@@ -19,28 +19,28 @@
                         <!-- q1 -->
                         <div class="question-container">
                             <p class="question">
-                            1-کدام نامزد ریاست جمهوری فساد بیشتری کرده و برنده است؟
+                            1-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
                             </p>
 
                             <input type="radio" name="answer1" value="1">
                             <lable for="answer1">
-                            ابراهیم رییسی
+                            گزینه یک
                             </lable><br>
 
 
                             <input type="radio" name="answer1" value="2">
                             <lable for="answer1">
-                             لاریجانی
+                             گزینه دو
                              </lable> <br>
 
                             <input type="radio" name="answer1" value="3">
                             <lable for="answer1">
-                            احمدی نژاد
+                            گزینه سه
                             </lable> <br>
 
                             <input type="radio" name="answer1" value="4">
                             <lable for="answer1">
-                            من
+                            گزینه چهار
                             </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
@@ -50,27 +50,27 @@
                         <!-- q2 -->
                         <div class="question-container">
                             <p class="question">
-                            2- ملا نصرالدین در زمان خودش نسبت به جمعیت و رسانه مشهور تر بود یا ساسی مانکن؟
+                            2-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
                             </p>
 
                             <input type="radio" name="answer2" value="1">
                             <lable for="answer2"> 
-                            ملانصر الدین
+                            گزینه یک
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="2">
                             <lable for="answer2">
-                            محمدی
+                            گزینه دو
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">
-                            ساسی مانکن
+                            گزینه سه
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="4">
                             <lable for="answer2">
-                            مرتضی پاشایی
+                            گزینه چهار
                             </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
@@ -79,26 +79,26 @@
                         <!-- q3 -->
                         <div class="question-container">
                             <p class="question">
-                                3-بیشترین فالوور اینستاگرام متعلق به کدام تیک تاکر اعظم است؟
+                            3-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
                             </p>
                             <input type="radio" name="answer3" value="1">
                             <lable for="answer3">
-                            عزیز محمدی
+                            گزینه یک
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
-                            رونالدو
+                            گزینه دو
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
-                            رونالدو اورجینال
+                            گزینه سه
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="4">
                             <lable for="answer3">
-                            عباس بوعذار
+                            گزینه چهار
                             </lable><br/><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
