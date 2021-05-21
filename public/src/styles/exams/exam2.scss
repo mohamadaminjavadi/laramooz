@@ -1,0 +1,32 @@
+.row{
+    display:flex;
+    direction:rtl;
+}
+.form{
+    background:whitesmoke;
+    .question-container{
+        border-bottom:1px solid black;
+        padding: 10px 20px 10px 0px;
+    }
+    .form-group{
+        padding-bottom: 20px;
+    }
+}
+.leftside{
+    background: rgb(224, 222, 222);
+    .point{
+        border-bottom: 1px solid black;
+        padding-bottom: 10px;
+        
+        .circle{
+            border-radius:50%;
+            background:white;
+            width:50px;
+            height:50px;
+            color:brown;
+            text-align:center;
+            padding-top: 12px;
+        }
+    }
+    
+}

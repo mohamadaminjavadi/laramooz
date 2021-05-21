@@ -1,0 +1,68 @@
+body {
+  direction: rtl;
+}
+
+body .contain {
+  padding: 60px;
+}
+
+body .contain .article-title {
+  font-size: 20pt;
+  padding: 10px 20px 20px 0px;
+  background-color: yellowgreen;
+  border-radius: 5px;
+}
+
+body .contain .paragraph-container {
+  border: 1.5px #c4c2c2 solid;
+  border-radius: 10px;
+  margin: 20px 0px 20px 0px;
+  padding: 10px;
+  background-color: rgba(205, 241, 238, 0.1);
+}
+
+body .contain .paragraph-container .paragraph-title {
+  font-size: 17pt;
+  padding: 5px 10px 5px 0px;
+  background: rgba(156, 154, 154, 0.3);
+}
+
+body .contain .note-container {
+  border-top: 1px dotted goldenrod;
+  border-bottom: 1px solid goldenrod;
+  margin: 50px 0 0 0;
+}
+
+.link {
+  direction: ltr;
+}
+
+.code {
+  direction: ltr;
+  background: #272750;
+  color: whitesmoke;
+  padding-left: 20px;
+  border-radius: 5px;
+  margin: 15px 0 15px 0;
+}
+
+.test-link {
+  text-align: center;
+  height: 40px;
+  padding-top: 8px;
+  margin-top: 40px;
+}
+
+.test-link a {
+  padding: 10px 20px 10px 20px;
+  background: #b0f745;
+  color: black;
+  font-size: 14pt;
+  text-decoration: none;
+}
+
+.paragraph-subtitle {
+  font-size: 15pt;
+  padding: 5px 10px 5px 0px;
+}
+/*# sourceMappingURL=global.css.map */

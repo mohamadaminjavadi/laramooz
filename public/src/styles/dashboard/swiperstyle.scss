@@ -1,0 +1,102 @@
+.card{
+    border: 0.5px solid rgb(196, 194, 194);
+    .card-img-top{
+        border: 0px solid black;
+        text-align: center;
+        background:greenyellow;
+        height: 200px;
+        .star{
+            background:blueviolet;
+            color:white;
+        }
+        h1{
+            font-size: 50pt;
+            margin-top:50px;
+        }
+    }
+}
+.locked{
+    
+    .card-img-top{
+        background:red;
+    }
+    a{
+        text-decoration:line-through;
+    }
+}
+.space{
+    height:90px;
+    display:flex;
+    p{
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size:12pt;
+    }
+    .circle{
+        border:1.5px solid yellowgreen;
+        height:50px;
+        width:50px;
+        border-radius:50%;
+        text-align: center;
+        h4{
+            margin-top:9px;
+        }
+    }
+    .vip{
+        background:gold;
+        height:23px;
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size:12pt;
+        text-decoration: none;
+        color:black;
+    }
+}
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .swiper-container {
+    width: 80%;
+    height: 100%;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  }
+  .swiper-button-next:hover{
+      width:10px;
+  }
+  .swiper-button-prev:hover{
+      width: 10px;
+  }
+
+  
