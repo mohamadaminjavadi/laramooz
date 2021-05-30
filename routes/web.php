@@ -24,7 +24,7 @@ $address='App\Http\Controllers\userController';
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',$address.'@pointlevel')->name('dashboard');
 Route::middleware(['auth:sanctum', 'verified'])->get('/govip',$address.'@govip')->name('govip');
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/govip/Zarinpal',$address.'@govipPayment')->name('govipPayment');
+Route::middleware(['auth:sanctum', 'verified'])->get('/govip/Zarinpal',$address.'@govipPayment')->name('govipPayment');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/level1',function(){
     return view('levels/level1');
