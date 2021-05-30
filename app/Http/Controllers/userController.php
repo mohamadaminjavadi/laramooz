@@ -32,7 +32,7 @@ class userController extends Controller
         $data['email']=$user->email;
         return View('getvip',compact('data'));
     }
-
+    
 
 
 }

@@ -27,7 +27,7 @@
                 <li>اعطای مدرک معتبر از دانشگاه استنفورد بریج</li>
             </ul>
             <p>قیمت اکانت: 10000 تومان</p>
-            <div class="button"><a href="#" class="btn btn-dark" dir="rtl">خرید اکانت VIP</a></div>
+            <div class="button"><a href="/govip/Zarinpal" class="btn btn-dark" dir="rtl">خرید اکانت VIP</a></div>
             
         </div>
     </section>
