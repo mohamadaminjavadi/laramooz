@@ -19,90 +19,90 @@
                         <!-- q1 -->
                         <div class="question-container">
                             <p class="question">
-                            1-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
+                            1- روت، چه وظیفه ای به عهده دارد
                             </p>
 
                             <input type="radio" name="answer1" value="1">
                             <lable for="answer1">
-                            گزینه یک
+                            معنی دار کردن یو آر ال
                             </lable><br>
 
 
                             <input type="radio" name="answer1" value="2">
                             <lable for="answer1">
-                             گزینه دو
-                             </lable> <br>
+                             انجام عمل روی داده های کاربر
+                            </lable> <br>
 
                             <input type="radio" name="answer1" value="3">
                             <lable for="answer1">
-                            گزینه سه
+                            افزایش سرعت برنامه
                             </lable> <br>
 
                             <input type="radio" name="answer1" value="4">
                             <lable for="answer1">
-                            گزینه چهار
+                            تولید داده برای دیتابیس
                             </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
-                            <a href="#"><button class="btn btn-dark">راهنمایی</button></a>
+                            <a href="{{route('show_answer',3.1)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
                         <!-- q2 -->
                         <div class="question-container">
                             <p class="question">
-                            2-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
+                            برای نام گذاری روت ها از کدام تابع استفاده میکنیم؟
                             </p>
 
                             <input type="radio" name="answer2" value="1">
                             <lable for="answer2"> 
-                            گزینه یک
+                            name()
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="2">
                             <lable for="answer2">
-                            گزینه دو
+                            pointer()
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">
-                            گزینه سه
+                            point()
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="4">
                             <lable for="answer2">
-                            گزینه چهار
+                            return()
                             </lable> <br><br>
 
-                            <input hidden type="radio" name="answer1" value="5" checked="checked">
-                            <a href="#"><button class="btn btn-dark">راهنمایی</button></a>
+                            <input hidden type="radio" name="answer2" value="5" checked="checked">
+                            <a href="{{route('show_answer',3.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
                         <!-- q3 -->
                         <div class="question-container">
                             <p class="question">
-                            3-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
+                            برای تعیین پیشوند در روت ها از کدام تابع استفاده میکنیم؟
                             </p>
                             <input type="radio" name="answer3" value="1">
                             <lable for="answer3">
-                            گزینه یک
+                            prefix()
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
-                            گزینه دو
+                            post()
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
-                            گزینه سه
+                            get()
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="4">
                             <lable for="answer3">
-                            گزینه چهار
+                            namespace()
                             </lable><br/><br>
 
-                            <input hidden type="radio" name="answer1" value="5" checked="checked">
-                            <a href="#"><button class="btn btn-dark">راهنمایی</button></a>
+                            <input hidden type="radio" name="answer3" value="5" checked="checked">
+                            <a href="{{route('show_answer',3.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
                         <!-- q4 -->
 
@@ -110,7 +110,7 @@
                     <input hidden type="radio" name="examnumber" value="3" checked="checked">
                         <div class="submit" dir="ltr"><button type="submit" class="btn btn-primary">پایان امتحان</button></div>
                     </form>
-                <!--  -->
+                <!-- answers: 111 -->
             </div>
             <div class="col-md-2 leftside">
             <div class="point"><p>امتیاز:</p><div class="circle">{{Auth::user()->point}}</div></div>

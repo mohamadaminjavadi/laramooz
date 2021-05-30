@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://sep.shaparak.ir/MobilePG/MobilePayment -->
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <title>درگاه پرداخت - پرداخت الکترونیک سامان</title>
+    
+
+<script type="text/javascript">
+
+        var serverUrl      = "https://sep.shaparak.ir/MobilePG";
+        var areaName       = "MobilePayment";
+        var userSessionKey = "fWtxjY8j2Qg";
+        var autoHideMessageTimeOut = 1700;
+
+        var otpSettings = {
+            maxTriesCount:       5,
+            maxTriesMessage:    "پیام حداکثر تعداد درخواست رمز یکبار مصرف",
+            otpTimeOut:          120,
+            otpTryAgainMessage: "مشتری گرامی، چنانچه قبلا نسبت به پویاسازی رمز دوم خود اقدام نموده و از صحت اطلاعات واردشده اطمینان دارید ولی هنوز رمز دوم پویا را دریافت نکرده اید، مجددا دکمه درخواست رمز پویا رابفشارید ."
+        };
+
+        var giftCardHintMessage = "کاربر گرامی کارت هدیه شما نیاز به دریافت رمز پویا ندارد خواهشمند است از رمز دوم ثابت کارت هدیه خود را استفاده نمایید.";
+
+</script>
+
+
+<style>
+    .loading-page {
+        position: fixed;
+        vertical-align: bottom;
+        line-height: 50px;
+        background-color: #2980B9;
+        width: 100%;
+        font-family: Segoe UI;
+        z-index: 99999;
+        font-weight: bold;
+        font-size: 1.4em;
+        height: 100%;
+        top: 0;
+        text-align: center;
+        color: #fff;
+    }
+</style>
+<link href="./درگاه پرداخت - پرداخت الکترونیک سامان_files/Loading.css" rel="stylesheet">
+
+
+
+
+    <script src="./درگاه پرداخت - پرداخت الکترونیک سامان_files/jquery"></script><script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script>
+
+</head>
+<body>
+    
+
+    <div class="blue-header">
+    <div class="inner container">
+        <div class="call-center">021-84080</div>
+    </div>
+</div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <span class="pull-left">
+            <img src="./درگاه پرداخت - پرداخت الکترونیک سامان_files/sep-logo.png" class="sep-header-logo" alt="Saman Electronic Payment">
+        </span>
+        <div class="pull-right">
+            <span class="shaparak-logo">
+                <img src="./درگاه پرداخت - پرداخت الکترونیک سامان_files/shaparak-logo1.png" class="sep-header-logo" alt="shaparak logo">
+            </span>
+        </div>
+        <div class="header-title">
+            دروازه پرداخت اینترنتی پرداخت الکترونیک سامان
+        </div>
+    </div>
+</div>
+
+<style>
+    .navbar {
+        text-align: center;
+    }
+</style>
+    <div class="container-fluid body-content">
+        
+<style>
+    .panel.col-md-5, .panel.col-md-6 {
+        padding: 0;
+    }
+    .num-pass-input {
+        -webkit-text-security: disc;
+    }
+</style>
+
+
+<div class="modal" id="otpResponseModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">رمز یکبار مصرف</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-justify" style="direction:rtl" id="otpResponseParagraph">
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closeMessageButton" class="btn btn-success btn-close" data-dismiss="modal">متوجه شدم</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="payContainer">
+        <div class="row row-mobile-flex">
+            <div class="col-sm-12 col-md-5 col-xs-12 flex-order-2" id="creditCardInfoWrapper">
+                
+<form action="https://sep.shaparak.ir/MobilePG/MobilePayment/Fa/Payment/CookieError" method="post" id="frmCookie">
+    <input name="SessionKey" type="hidden" value="fWtxjY8j2Qg">
+</form>
+
+<div id="card-info" class="panel panel-primary" style="height: 520px;">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-credit-card"></i>
+        اطلاعات کارت
+    </div>
+    <div class="hidden">
+<form action="https://sep.shaparak.ir/MobilePG/MobilePayment/Fa/Payment/FailedOtp" id="frmFailedOtp" method="post">            <input name="SessionKey" type="hidden" value="fWtxjY8j2Qg">
+            <input type="submit" name="name" value="">
+</form>    </div>
+    <div class="panel-body">
+<form action="https://sep.shaparak.ir/MobilePG/MobilePayment" id="frmPayment" method="post" novalidate="novalidate"><input name="__RequestVerificationToken" type="hidden" value="VC5bmfDPlWGn96V05QZuRcAgjrqtQ4KNiuUuD52NyGT0rDHGzbrqoHj_IvSuDGIuwgLwcP6W5RVTK1x-CAJbrDr4wHfHlbze_-e8_FMHyIM1">            <input name="action" type="hidden" value="pay">
+            <input name="SessionKey" type="hidden" value="fWtxjY8j2Qg">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-offset-3">
+                        <div class="payment-validation-error ">
+<div class="validation-summary-valid alert alert-danger" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div>                        </div>
+                    </div>
+                </div>
+
+                <div id="cardNumberContainer" class="form-group" style="display: none;">
+                    <label class="control-label col-md-3" for="CardNumber">شماره کارت</label>
+                    <div class="col-md-9">
+                            <div id="CardNumberCover" class="col-md-9 form-control"></div>
+                        <table id="CardNumber" class="ltr text-center sep-pan">
+                            <tbody><tr>
+                                <td>
+                                    
+                                    <input class="hide-pan" data-val="true" data-val-cardnumbervalidations="شماره کارت اشتباه است." data-val-cardnumbervalidations-invalidcardnumber="شماره کارت اشتباه است." data-val-required="شماره کارت الزامی است." id="CardNumber_PanString" name="CardNumber.PanString" type="text" value="" disabled="disabled">
+                                    <input autocomplete="off" class="sep-numeric form-control " id="CardNumber_Pan0" maxlength="4" name="CardNumber.Pan0" pattern="\d{5,12}" tabindex="1" type="tel" value="" disabled="disabled">
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <input autocomplete="off" class="sep-numeric form-control " id="CardNumber_Pan1" maxlength="4" name="CardNumber.Pan1" pattern="\d{5,12}" tabindex="2" type="tel" value="" disabled="disabled">
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <input autocomplete="off" class="sep-numeric form-control " id="CardNumber_Pan2" maxlength="4" name="CardNumber.Pan2" pattern="\d{5,12}" tabindex="3" type="tel" value="" disabled="disabled">
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <input autocomplete="off" class="sep-numeric form-control " id="CardNumber_Pan3" maxlength="4" name="CardNumber.Pan3" pattern="\d{5,12}" tabindex="4" type="tel" value="" disabled="disabled">
+
+                                </td>
+                                <td class="hidden">-</td>
+                                <td class="hidden">
+                                    <input autocomplete="off" class="sep-last-pan sep-numeric form-control" disabled="disabled" id="CardNumber_Pan4" maxlength="3" name="CardNumber.Pan4" pattern="\d{5,12}" type="tel" value="">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+                
+
+    <div class="form-group" id="CardSelector_Container">
+        <label class="control-label col-md-3">انتخاب کارت</label>
+
+            <div class="col-md-9">
+
+                <ul id="CardSelector" class="dropdown-menu display-block form-control height-unset" role="menu" aria-labelledby="dropdownMenu">
+
+                    <li><a tabindex="-1" href="https://sep.shaparak.ir/MobilePG/MobilePayment#" data-selectedcardid="-1" data-securepan="*" class="CardSelector-Option">هیچ کدام</a></li>
+                    <li class="divider"></li>
+                        <li><a tabindex="-1" href="https://sep.shaparak.ir/MobilePG/MobilePayment#" data-securepan="603799######1434" data-selectedcardid="89910211" data-giftcard="False">603799######1434 بانک ملی ایران</a></li>
+
+                </ul>
+                <input data-val="true" data-val-number="فیلد SelectedCardId فقط مقدار عددی قبول می کند." id="SelectedCardId" name="SelectedCardId" type="hidden" value="">
+            </div>
+    </div>
+
+                
+
+                <div class="form-group">
+                    <label class="control-label  col-md-3" for="">شماره شناسایی دوم(CVV2)</label>
+                    <div class="col-md-9">
+                        <input autocomplete="off" class="form-control sep-numeric cvv2 sep-secure-number is-keypad num-pass-input" data-val="true" data-val-length="تعداد کارکترهای فیلد شماره شناسایی دوم(CVV2) باید بین 3 و 4 باشد." data-val-length-max="4" data-val-length-min="3" data-val-regex="فیلد شماره شناسایی دوم(CVV2) فقط مقادیر عددی می پذیرد." data-val-regex-pattern="^\d+$" data-val-required="شماره شناسایی دوم(CVV2) الزامی است." id="Cvv2" maxlength="4" name="Cvv2" pattern="\d{5,12}" tabindex="5" type="tel" value="">
+
+                    </div>
+                </div>
+                <div id="expDateContainer" class="form-group">
+                    <label class="control-label col-md-3" for="ExpDate">تاریخ انقضای کارت</label>
+                    <div class="col-md-9">
+                        <div id="exp-date-container" class="exp-date-container">
+                            <div id="enableExpDate" style="display: none;" class="col-xs-12 no-padding">
+                                <div>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <input class="btn btn-default" id="btnChangeExpDate" type="button" tabindex="6" ,="" value="تغییر تاریخ انقضا">
+                                        </span>
+                                        <input id="expireDateMsg" class="form-control" type="text" value="**/**" style="font-size:1.8em;">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div id="exp-input-date-container">
+                                <div class="input-group col-xs-5 no-padding exp-date-input">
+                                    <span class="input-group-addon" id="basic-addon1"><label for="Month">ماه</label></span>
+                                    <input autocomplete="off" class="sep-numeric month-input form-control" data-val="true" data-val-range="فیلد ماه می بایست عددی بین 1 تا 12 باشد." data-val-range-max="12" data-val-range-min="1" data-val-required="ماه الزامی است." id="Month" maxlength="2" name="Month" pattern="\d{5,12}" tabindex="7" type="tel" value="">
+                                </div>
+                                <div class="col-xs-2 no-padding exp-date-input"></div>
+                                <div class="input-group col-xs-5 no-padding exp-date-input">
+                                    <span class="input-group-addon" id="basic-addon1"><label for="Year">سال</label></span>
+                                    <input autocomplete="off" class="sep-numeric year-input form-control" data-val="true" data-val-required="سال الزامی است." id="Year" maxlength="2" name="Year" pattern="\d{5,12}" tabindex="8" type="tel" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+    <label class="control-label col-md-3" for="">کد امنیتی</label>
+    <div id="captchaContainer" class="col-md-9">
+        <div class="captcha-container input-group  input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">
+                <img id="CaptchaImage" src="data:image/JPEG;base64,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">
+            </span>
+            <input id="CaptchaInputText" autocomplete="off" autocorrect="off" class="sep-numeric form-control k-textbox" data-original-title="فقط عددهای انگلیسی قابل پذیرش است." data-placement="top" data-toggle="tooltip" maxlength="5" name="CaptchaInputText" next-input="#EmailAddress" tabindex="9" type="tel" value="">
+            <br>
+            <span class="input-group-btn">
+                <span id="CaptchaRefreshButton" class="btn btn-default captcha-button glyphicon glyphicon-refresh" type="button">
+                </span>
+            </span>
+        </div>
+    </div>
+</div>
+
+                <div class="form-group" id="afterCardNotice" style="display:none">
+    <label class="control-label col-md-3">&nbsp;</label>
+    <div class="col-md-9">
+        <div class="alert alert-info margin-top-remove margin-bottom-remove">
+            <strong class="text-center message">
+
+            </strong>
+        </div>
+    </div>
+</div>
+                <div class="form-group">
+                    <label class="control-label col-md-3" for="Pin2">رمز دوم</label>
+                    <div class="col-md-9">
+                        <div class="input-group">
+                            <input autocomplete="off" class="form-control sep-numeric sep-secure-number is-keypad num-pass-input" data-val="true" data-val-length="تعداد کارکترهای فیلد رمز دوم باید بین 4 و 12 باشد." data-val-length-max="12" data-val-length-min="4" data-val-regex="فیلد رمز دوم فقط مقادیر عددی می پذیرد." data-val-regex-pattern="^\d+$" data-val-required="رمز دوم الزامی است." id="Pin2" maxlength="12" name="Pin2" pattern="\d{5,12}" placeholder="ورود رمز" tabindex="10" type="tel" value="">
+                            <span class="input-group-btn">
+                                <button type="button" no-validation="true" id="requestOtpButton" class="btn btn-success">درخواست رمز پویا</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+
+<div class="form-group">
+    <label class="control-label col-md-3" for="Email">آدرس ایمیل(اختیاری)</label>
+    <div class="col-md-9">
+        <div class="input-group">
+                <span class="input-group-btn">
+                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        انتخاب <span class="caret"></span>
+                    </a>
+                    <ul id="ulEmail" class="dropdown-menu">
+                            <li>
+                                <a href="javascript:setEmailToInput(&#39;m.a.j.wushu@gmail.com&#39;)">m.a.j.wushu@gmail.com</a>
+                            </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="javascript:showEmailModal();">مدیریت ایمیل ها</a>
+                        </li>
+                    </ul>
+                </span>
+            <input class="form-control ltr" data-val="true" data-val-email="آدرس پست الکترونیک خود راصحیح  وارد نمایید." data-val-length="فیلد آدرس ایمیل(اختیاری) حداکثر 255 کاراکتر ظرفیت دارد." data-val-length-max="255" id="userEmail" maxlength="255" name="Email" tabindex="13" type="email" value="">
+            <span class="input-group-addon">
+                <input data-val="true" data-val-required="The ذخیره field is required." id="SaveMyEmail" name="SaveMyEmail" type="checkbox" value="true"><input name="SaveMyEmail" type="hidden" value="false">
+                <label for="SaveMyEmail">ذخیره</label>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+        function setEmailToInput(email) {
+            $("#userEmail").val(email);
+        }
+
+        function showEmailModal() {
+            $("#modalEmails").modal("show");
+        }
+
+        var emailList = {
+            remove: function (val) {
+                var $d = this.data;
+                for (var i = 0; i < $d.length; i++) {
+                    if ($d[i] === val) {
+                        $d.splice(i, 1);
+                        i--;
+                    }
+                }
+                return $d;
+            },
+            data :[]
+        };
+        $(document).ready(function () {
+                
+                    emailList.data.push('m.a.j.wushu@gmail.com');
+                
+            $(".btn-email-remove").on("click",
+                function() {
+                    var email = $(this).attr("data-email");
+                    var $btn = $(this);
+                    $.ajax({
+                        url: '/MobilePG/MobilePayment/Fa/Payment/RemoveEmail',
+                        data: {
+                            SessionKey: 'fWtxjY8j2Qg',
+                            email: email
+                        },
+                        type: "post",
+                        success: function (data) {
+                            if (data.Status < 1) {
+                                return;
+                            }
+                            $btn.closest(".email-item").remove();
+                            emailList.data = emailList.remove(email);
+                            $("#ulEmail").html("");
+                            var $lst = emailList.data;
+                            for (var i = 0; i < $lst.length; i++) {
+                                $("#ulEmail")
+                                    .append(
+                                    "<li><a href=\"javascript:setEmailToInput('\"" + $lst[i] + "')\">" + $lst[i]+"</a></li>");
+                            }
+                            $("#ulEmail")
+                                .append(
+                                    '<li role="separator" class="divider"></li><li>' +
+                                    '<a href="javascript:showEmailModal();">مدیریت ایمیل ها</a></li>');
+                        }
+                    });
+                });
+        });
+        
+</script>
+
+                
+
+<div class="form-group">
+    <label class="control-label  col-md-3" for="CellNumber">شماره تلفن همراه(اختیاری)</label>
+    <div class="col-md-9">
+        <input autocomplete="off" class="form-control sep-numeric" data-original-title="فقط عددهای انگلیسی قابل پذیرش است." data-placement="top" data-toggle="tooltip" id="CellNumber" inputmode="numeric" maxlength="14" name="CellNumber" tabindex="14" type="tel" value="">
+    </div>
+</div>
+                    <div id="saveAfterPayContainer" class="form-group">
+                        <div class="col-md-offset-3 col-md-9" style="font-size: 0.9em;">
+                            <div class="col-xs-1 no-padding" style="width: 5%;">
+                                <input data-val="true" data-val-required="The ذخیره شماره کارت و تاریخ انقضا در سامانه های پرداخت سامان field is required." id="SaveAfterPay" name="SaveAfterPay" type="checkbox" value="true"><input name="SaveAfterPay" type="hidden" value="false">
+                            </div>
+                            <div class="col-xs-11 no-padding" style="width: 95%;">
+                                <label for="SaveAfterPay">ذخیره شماره کارت و تاریخ انقضا در سامانه های پرداخت سامان</label>
+                            </div>
+                        </div>
+                    </div>
+                <div class="form-group btn-container">
+                    <div class="col-md-offset-3 col-md-9">
+                        <div class="row">
+    <div class="col-sm-6 col-xs-6">
+        <button id="button-payment-pay" tabindex="12" load="درحال پردازش..." class="btn btn-primary form-control" title="ارسال اطلاعات کارت و پرداخت تراکنش" type="submit">
+            <i class="glyphicon glyphicon-ok"></i>
+            <span>پرداخت</span>
+        </button>
+    </div>
+    <div class="col-sm-6 col-xs-6">
+        <button id="button-payment-cancel" tabindex="15" no-validation="true" type="button" onclick="cancelPayment()" class="btn btn-danger form-control" title="انصراف از پرداخت تراکنش و انتقال به سایت پذیرنده">
+            <i class="glyphicon glyphicon-ban-circle"></i>
+            <span>
+                انصراف
+            </span>
+        </button>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-offset-3">
+                        <div class="payment-validation-error show-only-on-mobile">
+                            <div class="validation-summary-valid alert alert-danger" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</form>        <form action="https://sep.shaparak.ir/MobilePG/MobilePayment" method="post">            <input name="action" type="hidden" value="cancel">
+            <input name="SessionKey" type="hidden" value="fWtxjY8j2Qg">
+            <input id="btnCancel" style="display: none;" type="submit">
+</form>    </div>
+</div>
+
+            </div>
+            <div class="col-sm-12 col-md-4 col-xs-12 flex-order-1">
+                
+
+<div id="merchant-info" class=" panel panel-primary mobile-m-h-unset" style="height: 520px;">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-info-sign"></i>
+        اطلاعات پذیرنده
+    </div>
+    <div class="panel-body">
+        <div class="accinfo">
+            <ul>
+                <li class="alert-gray">
+                    <div id="pay-timer" class="timer-green">
+    <i class="glyphicon glyphicon-time"></i>
+    <span>
+        زمان باقیمانده:&nbsp;
+    </span>
+    <span class="value">
+        <span id="min">09</span>:<span id="sec">50</span>
+    </span>
+</div>
+                </li>
+                <li class="alert-gray p-r-0">
+                        <div class="img-holder">
+                            <img src="./درگاه پرداخت - پرداخت الکترونیک سامان_files/410d8b9e403f4e7ea7f559f4eda0e337.png" alt="" class="merchant-logo">
+                        </div>
+                </li>
+
+                <li class="alert-gray">
+                    <i class="glyphicon glyphicon-certificate"></i>
+                    <label for="">شماره پذیرنده / ترمینال</label>
+                    <span>
+                        10501871
+                    </span>
+                    <span> / </span>
+                    <span>
+                        10501871
+                    </span>
+                </li>
+
+                
+
+                <li class="alert-gray">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <label for="Merchant">نام پذیرنده</label>
+                    سفرهای علی بابا
+                </li>
+                <li class="alert-gray">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <label for="RedirectUrl">آدرس سایت پذیرنده</label>
+                    alibaba.ir
+                </li>
+                <li class="price alert-gray">
+                    <i class="glyphicon glyphicon-asterisk"></i>
+                    <label for="Amount">مبلغ قابل پرداخت(ریال)</label>
+                    <span>
+                        605,000 ریال
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-xs-12 flex-order-3">
+                
+<div id="security-notice" class="panel panel-info">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-exclamation-sign"></i>
+        راهنمای استفاده از رمز پویا
+    </div>
+    <div class="panel-body">
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            <b>رمز پویا</b>
+            <span>
+                رمز یکبار مصرفی است که به جای رمز دوم کارت استفاده می‌شود.
+            </span>
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            <b>مرحله اول - </b>
+            <span>بر اساس دستورالعمل بانک صادرکننده کارت خود، نسبت به فعال سازی رمز پویا اقدام نمایید.</span>
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            <b>مرحله دوم - </b>
+            <span>رمز پویا را بر اساس روش اعلامی از طرف بانک صادر کننده کارت، به یکی از روش های زیر دریافت کنید</span>
+            </p><ul class="list-style-none">
+                <li>
+                    <b>1-</b>
+                    <span>
+                        دریافت از طریق برنامه کاربردی بانک، اینترنت بانک و یا موبایل بانک
+                    </span>
+                </li>
+                <li>
+                    <b>2-</b>
+                    <span>
+                        دریافت از طریق کد USSD بانک صادر کننده کارت شما
+                    </span>
+                </li>
+                <li>
+                    <b>3-</b>
+                    <span>
+                        دریافت از طریق زدن دکمه "درخواست رمز پویا" در درگاه پرداخت اینترنتی
+                    </span>
+                </li>
+            </ul>
+        <p></p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            <b>مرحله سوم - </b>
+            <span>پس از دریافت رمز به یکی از روش های فوق، رمز پویای دریافت شده را در محل تعیین شده برای "رمز دوم" وارد نمایید و سپس مابقی اطلاعات راتکمیل نمایید.</span>
+        </p>
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                
+
+
+<div id="security-notice" class="panel panel-danger">
+    <div class="panel-heading">
+        <i class="glyphicon glyphicon-exclamation-sign"></i>
+        
+        راهنما و نکات امنیتی
+    </div>
+    <div class="panel-body">
+        <!-- در صورت تسویه به چند حساب به ازای هر شبا مبلغ باید یک عنصر به آرایه افزوده گردد-->
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            شماره کارت: 16 رقمی بوده و بصورت 4 قسمت 4 رقمی روی کارت درج شده است
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            cvv2با طول 3 یا 4 رقم کنار شماره کارت و یا پشت کارت درج شده است
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            تاریخ انقضا: شامل دو بخش ماه و سال انقضا در کنار شماره کارت درج شده است
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            رمز اینترنتی: با عنوان رمز دوم و در برخی موارد با PIN2 شناخته می شود، از طریق بانک صادر کننده کارت تولید شده و همچنین از طریق دستگاه های خودپرداز بانک صادر کننده قابل تهیه و یا تغییر می باشد
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            کد امنیتی: بخشی از محتوای صفحه پرداخت است و لازم است برای ادامه فرایند خرید ، کد موجود که به صورت عددی در تصویر مشخص شده است در محل پیش بینی شده درج شود
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            درگاه پرداخت اینترنتی سامان با استفاده از پروتکل امن SSL به مشتریان خود ارایه خدمت نموده و با آدرس <strong style="font-size:1.4em; color:red;">https://sep.shaparak.ir</strong> شروع می شود. خواهشمند است به منظور جلوگیری از سوء استفاده های احتمالی پیش از ورود هرگونه اطلاعات، آدرس موجود در بخش مرورگر وب خود را با آدرس فوق مقایسه نمایید و درصورت مشاهده هر نوع مغایرت احتمالی، موضوع را با ما درمیان بگذارید.
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            از صحت نام فروشنده و مبلغ نمایش داده شده، اطمینان حاصل فرمایید.
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            برای جلوگیری از افشای رمز کارت خود، حتی المقدور از صفحه کلید مجازی استفاده فرمایید.
+        </p>
+        <p>
+            <i class="glyphicon glyphicon-ok" style="color: green;font-size: 1.2em;"></i>
+            برای کسب اطلاعات بیشتر، گزارش فروشگاههای مشکوک و همچنین اطلاع از وضعیت پذیرندگان
+            اینترنتی با شماره 84080 تماس بگیرید و یا از طریق ایمیل epay@sep.ir اقدام نمایید.
+        </p>
+    </div>
+</div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+<div id="modalEmails" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h5 class="modal-title">مدیریت ایمیل ها</h5>
+            </div>
+            <div class="modal-body">
+                <div class="email-item">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-danger btn-email-remove" data-email="m.a.j.wushu@gmail.com">حذف</button>
+                        </div>
+                        <input type="text" disabled="disabled" class="form-control" value="m.a.j.wushu@gmail.com">
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="footer">
+    <div class="container">
+        <div class="footer-phone">
+            <i class="glyphicon glyphicon-earphone"></i>
+            <span>مرکز شبانه روزی ارتباط با مشتریان:</span>
+            <span class="value">84080-021</span>
+        </div>
+        <div class="footer-copyright">
+            <i class="glyphicon glyphicon-registration-mark"></i>
+            تمامی حقوق این نرم افزار متعلق به  شرکت پرداخت الکترونیک سامان  می باشد.
+        </div>
+        <div class="footer-company">
+            <i class="glyphicon glyphicon-copyright-mark"></i>
+            شرکت پرداخت الکترونیک سامان <span style="direction: rtl;"> 2021- 2008</span>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        setFooterPosition();
+        $(".btn").on("click", function (e) {
+            setTimeout(function() {
+                setFooterPosition();
+            }, 100);
+        });
+        $(window).resize(function() {
+            setTimeout(function () {
+                setFooterPosition();
+            }, 100);
+        });
+    });
+</script>
+    <script src="./درگاه پرداخت - پرداخت الکترونیک سامان_files/modernizr"></script>
+
+<link rel="stylesheet" href="./درگاه پرداخت - پرداخت الکترونیک سامان_files/bootstrap.min.css">
+
+<script src="./درگاه پرداخت - پرداخت الکترونیک سامان_files/jqueryval"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.loading-page').hide();
+        $('.loading-page').remove();
+        $('.main-page').show();
+    });
+
+</script>
+<link href="./درگاه پرداخت - پرداخت الکترونیک سامان_files/css" rel="stylesheet">
+<script src="./درگاه پرداخت - پرداخت الکترونیک سامان_files/fa-scripts"></script>
+<!--[if IE 7]>
+<link href="/MobilePG/Content/IE7.css" rel="stylesheet"/>
+
+<![endif]-->
+<!--[if lte IE 8]>
+<link href="/MobilePG/Content/IE8.css" rel="stylesheet"/>
+
+<![endif]-->
+
+    
+            
+<script>
+    $(document).ready(function() {
+        if (!navigator.cookieEnabled) {
+            $("#payContainer").hide();
+            $("#frmCookie").submit();
+        }
+        var isWebKit = /webkit/.test(navigator.userAgent.toLowerCase());
+        var isEdge = navigator.userAgent.search("Edge") > 0;
+        if (!isEdge && isWebKit) {
+            $("#Pin2, #Cvv2").addClass("num-pass-input");
+            $("#Pin2, #Cvv2").attr("type", "tel");
+        }
+        var timeout = parseInt('600000');
+        $('#pay-timer').startKTimer({
+            timeOut: timeout,
+            btnTimeoutClick: $('#button-payment-cancel')
+        });
+        syncSectionsHeight();
+
+        $("#CaptchaInputText").attr("maxlength", 5);
+        $("#CaptchaInputText").attr("type", "tel");
+    });
+
+    function syncSectionsHeight() {
+
+        //$('#card-info').syncHeight($('#merchant-info'), 768);
+
+
+        //$("#button-payment-pay").on("click", function (e) {
+        //    $('#card-info').syncHeight($('#merchant-info'), 768);
+        //});
+
+            
+                $(window).resize(function () {
+                    $('#card-info').syncHeight($('#merchant-info'),
+                        768);
+                });
+            
+    }
+
+
+    /* Card Number Validator*/
+    jQuery.validator.unobtrusive.adapters.add
+    ("cardnumbervalidations", ['invalidcardnumber'],
+        function (options) {
+            options.rules['cardnumbervalidations'] = {
+                other: options.params.other,
+                invalidcardnumber: options.params.invalidcardnumber
+            };
+            options.messages['cardnumbervalidations'] = options.message;
+        }
+    );
+
+
+    jQuery.validator.addMethod("cardnumbervalidations", function (value, element, params) {
+        var result = isValidCard(value);
+        setTimeout(function () {
+            if (!result)
+                $(element).closest('tr').find('input:enabled').removeClass('valid').addClass('input-validation-error');
+            else
+                $(element).closest('tr').find('input').removeClass('input-validation-error');
+            syncSectionsHeight();
+        }, 200);
+        return result;
+    });
+
+        
+    $(document).ready(function(){
+        loadSelectedCard();
+        $("#SelectedCardId").on("change",function(){
+            loadSelectedCard();
+        });
+        $("#enableExpDate .btn").click(function() {
+            $("#Month, #Year").removeAttr("disabled").val("");
+            $("#saveAfterPayContainer").fadeIn();
+            $("#enableExpDate").hide();
+            $("#expDateContainer .col-xs-1,#expDateContainer .col-xs-4").show();
+            $(".exp-date-input").show();
+        });
+    });
+    function loadSelectedCard() {
+        $("#expireDateMsg").attr("disabled", "disabled");
+        $("#Month, #Year,#Pin2,#Cvv2").val('');
+        if($("#SelectedCardId option:selected").index()===0){
+            clearForm();
+            return;
+        }
+        var item = findSavedCard(parseInt($("#SelectedCardId").val()));
+        $("#cardNumberContainer").hide();
+        if(item != null && item.HasExpireDate )
+        {
+            $("#Month, #Year").attr("disabled","disabled").val("**");
+            $("#saveAfterPayContainer").hide();
+            $("#expDateContainer .col-xs-1,#expDateContainer .col-xs-4").hide();
+            $("#enableExpDate").show();
+            $(".exp-date-input").hide();
+        }
+        else{
+            $("#saveAfterPayContainer").show();
+            $("#expDateContainer").show();
+            $("#expDateContainer .col-xs-1,#expDateContainer .col-xs-4").show();
+            $("#enableExpDate").hide();
+            $(".exp-date-input").show();
+            $("#expDateContainer input").removeAttr("disabled");
+        }
+        $("#cardNumberContainer input").attr("disabled", "disabled");
+        syncSectionsHeight();
+    }
+
+    function clearForm(){
+        $("#cardNumberContainer").show();
+        $("#expDateContainer").show();
+        $("#cardNumberContainer input").removeAttr("disabled");
+        $("#expDateContainer input").removeAttr("disabled");
+        $(".sep-last-pan").attr("disabled","disabled");
+        $("#saveAfterPayContainer").show();
+        $("#enableExpDate").hide();
+        $(".exp-date-input").show();
+        syncSectionsHeight();
+    }
+    /* Select Cards Methods */
+    function deleteCard(elem,id,sessionKey){
+        elem.closest('tr').hide();
+        $.ajax({
+            url:'/MobilePG/MobilePayment/Fa/Payment/RemoveCard',
+            data:{id:id,sessionKey:sessionKey},
+            type:'POST'
+        }).success(function(){
+
+        }).fail(function(){
+
+        });
+    }
+
+    function findSavedCard(id) {
+        var savedCards = [];
+            
+                savedCards.push(
+                    {
+                        Id: 89910211,
+
+                        HasExpireDate:true
+                    });
+            
+        for (var i = 0; i < savedCards.length; i++) {
+            if (savedCards[i].Id === id)
+                return savedCards[i];
+        }
+        return null;
+    }
+    /* END Select Cards Methods */
+
+
+        
+</script>
+            <script src="./درگاه پرداخت - پرداخت الکترونیک سامان_files/card"></script>
+
+        
+    
+    <!--[if IE 7]>
+        <link href="/MobilePG/Content/StyleIE7.css" rel="stylesheet" />
+    <![endif]-->
+
+    <script>
+
+        $(document).ready(function () {
+
+            if (!navigator.cookieEnabled) {
+                $("form").attr("method", "get");
+            }
+
+            $("#Month,#button-payment-pay").focus(function () {
+                $(".keypad-close").click();
+            });
+        });
+
+    </script>
+    <div style="display: none !important;">
+        5.2.400.116 (9032c8f6-6f26-4815-97da-0b8af61989c5)
+    </div>
+
+
+<div class="keypad-popup" style="display: none;"><div class="keypad-row"><button type="button" class="keypad-key">4</button><button type="button" class="keypad-key">3</button><button type="button" class="keypad-key">2</button><button type="button" class="keypad-special keypad-close" title="صفحه کلید مجازی را ببند">بستن</button></div><div class="keypad-row"><button type="button" class="keypad-key">1</button><button type="button" class="keypad-key">6</button><button type="button" class="keypad-key">0</button><button type="button" class="keypad-special keypad-clear" title="تمام کاراکترهای موجود را پاک کن">بازنویسی</button></div><div class="keypad-row"><button type="button" class="keypad-key">5</button><button type="button" class="keypad-key">7</button><button type="button" class="keypad-key">9</button><button type="button" class="keypad-special keypad-back" title="کاراکتر قبلی را پاک کن">تصحیح</button></div><div class="keypad-row"><div class="keypad-space"></div><button type="button" class="keypad-key">8</button></div></div></body></html>

@@ -24,7 +24,7 @@ $address='App\Http\Controllers\userController';
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',$address.'@pointlevel')->name('dashboard');
 Route::middleware(['auth:sanctum', 'verified'])->get('/govip',$address.'@govip')->name('govip');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/govip/Zarinpal',$address.'@govipPayment')->name('govipPayment');
+Route::middleware(['auth:sanctum', 'verified'])->get('/govip/payment',$address.'@govipPayment')->name('govipPayment');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/level1',function(){
     return view('levels/level1');
@@ -92,5 +92,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/exam9',function(){
     return view('exams/exam9');
 })->name('exam9');
 
+
+
 $address='App\Http\Controllers\testController';
 Route::middleware(['auth:sanctum', 'verified'])->post('submitexam',$address.'@checkAnswer')->name('submitexam');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('show_answer/{data}',$address.'@showAnswer',with('data'))->name('show_answer');

@@ -86,6 +86,29 @@ class testController extends Controller
         }
     }
 
+    public function showAnswer(Request $request,$data){
+        $user=User::find(Auth::user()->id);
+        $point=$user->point;
+        if($point>5){
+            $numbers=explode('.',number_format($data,1));
+            $examNumber=(int)$numbers[0];
+            $questionNumber=(int)$numbers[1];
+            $exam=testModel::find($examNumber);
+            $answer=$exam->anum[$questionNumber-1];
+
+            $user->point=$point-5;
+            $user->save();
+            
+            return view('show_answer',compact('answer'));
+        }
+        else{
+            return view('show_answer');
+        }
+        
+
+    }
+
+
     public function getscore($user_id,$examnumber){
         
     }

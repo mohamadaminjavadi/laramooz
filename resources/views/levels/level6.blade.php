@@ -35,8 +35,8 @@
                 <div class="paragraph">
                     <div class="code">
                     public function rules()
-                    {
-                        return [
+                    {<br>
+                        return [<br>
                     'block_id' => 'required|integer|exists:block,id',
                     <p dir="rtl">
                     در این بخش باید قوانین و شروطی که ورودی های تابع داشته باشند را بنویسیم. در این مثال گفته شده بخش آیدی، باید حتما نوشته شده باشد (required)، حتما نوع آن اینتجر باشد و در جدول block و در ستون id حتما موجود باشد وگرنه قبول نکن.<br>

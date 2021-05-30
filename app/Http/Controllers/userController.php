@@ -34,38 +34,8 @@ class userController extends Controller
         return View('getvip',compact('data'));
     }
     public static function govipPayment(){
-        $zarinpal = new Zarinpal('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');
-        $zarinpal->enableSandbox(); // active sandbox mod for test env
-        // $zarinpal->isZarinGate(); // active zarinGate mode
-        dd($zarinpal);
-        $results = $zarinpal->request(
-            "example.com/testVerify.php",          //required
-            1000,                                  //required
-            'testing',                             //required
-            'me@example.com',                      //optional
-            '09000000000',                         //optional
-            [                          //optional
-                "Wages" => [
-                    "zp.1.1"=> [
-                        "Amount"=> 120,
-                        "Description"=> "part 1"
-                    ],
-                    "zp.2.5"=> [
-                        "Amount"=> 60,
-                        "Description"=> "part 2"
-                    ]
-                ]
-            ]
-        );
-        dd($results);
-        echo json_encode($results);
-        if (isset($results['Authority'])) {
-            file_put_contents('Authority', $results['Authority']);
-            $zarinpal->redirect();
-        }
-        //it will redirect to zarinpal to do the transaction or fail and just echo the errors.
-        //$results['Authority'] must save somewhere to do the verification
-
+        $data['price']=10000;
+        return View('payment',compact('data'));
     }
 
 

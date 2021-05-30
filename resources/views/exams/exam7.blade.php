@@ -19,90 +19,92 @@
                         <!-- q1 -->
                         <div class="question-container">
                             <p class="question">
-                            1-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
+                            کدام روش برای ارسال داده به فایل بلید درست است؟
                             </p>
 
                             <input type="radio" name="answer1" value="1">
                             <lable for="answer1">
-                            گزینه یک
+                            $name='Victoria';<br>
+                            return view('greeting')->with('name');
                             </lable><br>
 
 
                             <input type="radio" name="answer1" value="2">
                             <lable for="answer1">
-                             گزینه دو
+                            $name='Victoria';<br>
+                            return view('greeting')->compact('name');
                              </lable> <br>
 
                             <input type="radio" name="answer1" value="3">
                             <lable for="answer1">
-                            گزینه سه
+                            return view('greeting')with->('name:Victoria');
                             </lable> <br>
 
                             <input type="radio" name="answer1" value="4">
                             <lable for="answer1">
-                            گزینه چهار
+                            اولی و دومی
                             </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
-                            <a href="#"><button class="btn btn-dark">راهنمایی</button></a>
+                            <a href="{{route('show_answer',7.1)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
                         <!-- q2 -->
                         <div class="question-container">
                             <p class="question">
-                            2-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
+                            کدام دستور، همه ویو ها را یکباره کامپایل میکند تا زمان پروژه وقت کمتری گرفته شود؟
                             </p>
 
                             <input type="radio" name="answer2" value="1">
                             <lable for="answer2"> 
-                            گزینه یک
+                            php artisan compile:view
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="2">
                             <lable for="answer2">
-                            گزینه دو
+                            php artisan view:cache
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">
-                            گزینه سه
+                            php artisan view:clean
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="4">
                             <lable for="answer2">
-                            گزینه چهار
+                            php artisan view:compile
                             </lable> <br><br>
 
-                            <input hidden type="radio" name="answer1" value="5" checked="checked">
-                            <a href="#"><button class="btn btn-dark">راهنمایی</button></a>
+                            <input hidden type="radio" name="answer2" value="5" checked="checked">
+                            <a href="{{route('show_answer',7.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
                         <!-- q3 -->
                         <div class="question-container">
                             <p class="question">
-                            3-متن ساختگی برای پر کردن فضای سوال برای امتحان وبسایت
+                            بخش ویو شامل کدام بخش از کلیت معماری ام وی سی است؟
                             </p>
                             <input type="radio" name="answer3" value="1">
                             <lable for="answer3">
-                            گزینه یک
+                            فرانت اند
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
-                            گزینه دو
+                            بک اند
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
-                            گزینه سه
+                            ای پی آی
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="4">
                             <lable for="answer3">
-                            گزینه چهار
+                            دیتابیس
                             </lable><br/><br>
 
-                            <input hidden type="radio" name="answer1" value="5" checked="checked">
-                            <a href="#"><button class="btn btn-dark">راهنمایی</button></a>
+                            <input hidden type="radio" name="answer3" value="5" checked="checked">
+                            <a href="{{route('show_answer',7.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
                         <!-- q4 -->
 
@@ -110,7 +112,7 @@
                     <input hidden type="radio" name="examnumber" value="7" checked="checked">
                         <div class="submit" dir="ltr"><button type="submit" class="btn btn-primary">پایان امتحان</button></div>
                     </form>
-                <!--  -->
+                <!-- 421 -->
             </div>
             <div class="col-md-2 leftside">
             <div class="point"><p>امتیاز:</p><div class="circle">{{Auth::user()->point}}</div></div>
