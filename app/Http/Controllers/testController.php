@@ -108,31 +108,12 @@ class testController extends Controller
 
     }
 
-
-    public function getscore($user_id,$examnumber){
-        
+    public function returnLevel(Request $request, $data){
+        return view('levels/level'.$data);
     }
-
-
-
-
-
-
-
-
-
-
-    public function use_hint(Request $request){
-        $question=testModel::find($request->id);
-        if($question['point']>=5){
-            $question->decrement('point',5);
-        }
-        else{
-            //buy coin
-        }   
+    public function returnExam(Request $request,$data){
+        return view('exams/exam'.$data);
     }
-
-
 
 
 

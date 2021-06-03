@@ -5,7 +5,7 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="./src/styles/levels/global.css">
+            <link rel="stylesheet" href="./../src/styles/levels/global.css">
             <title>level 1</title>
         </head>
         <body>
@@ -96,7 +96,7 @@
                     <div class="note">در این مثال، به محض رسیدن به خط dd عمل متوقف شده، ویژگی نام که در ریکوئست به تابع آمده را در سی ام دی پرینت می کند. میتوان از dd() بدون ورودی هم استفاده کرد و فقط برنامه را در آن خط متوقف کرد. این تابع بیشتر جنبه کمکی برای دیباگ دارد و بنده استفاده دیگری از آن ندیده ام.</div>
                 </div>
 
-                <div class="test-link"><a href="{{route('exam1')}}">امتحان بخش یک</a></div>
+                <div class="test-link"><a href="{{route('exam',1)}}">امتحان بخش یک</a></div>
 
 
 
