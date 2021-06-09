@@ -23,14 +23,14 @@ class testModel extends Model
         $bonus = abs($score/20);
         if($user['vip']){
             if($user['level']<$examnumber){
-                $user['level'] = $examnumber;
+                $user['level'] = $examnumber+1;
             }
             $user->increment('point',$bonus);
             }
         else{
             if($user['level']<5){
-                if($user['level']<$examnumber){
-                    $user['level'] = $examnumber;
+                if($user['level']<=$examnumber){
+                    $user['level'] = $examnumber+1;
                 }
                 $user->increment('point',5);
                 }

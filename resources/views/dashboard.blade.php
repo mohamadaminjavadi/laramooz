@@ -99,7 +99,7 @@
                 <div class="card-body">
                     <h4 class="card-title">مرحله دو</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
-                    @if(Auth::user()->level>=1)
+                    @if(Auth::user()->level>=2)
                         <a href="{{route('level',2)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
                 </div>
@@ -126,7 +126,7 @@
                 <div class="card-body">
                     <h4 class="card-title">مرحله سه</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
-                    @if(Auth::user()->level>=2)
+                    @if(Auth::user()->level>=3)
                         <a href="{{route('level',3)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
                 </div>
@@ -153,7 +153,7 @@
                 <div class="card-body">
                     <h4 class="card-title">مرحله چهار</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
-                    @if(Auth::user()->level>=3)
+                    @if(Auth::user()->level>=4)
                         <a href="{{route('level',4)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
                 </div>
@@ -179,7 +179,7 @@
                 <div class="card-body">
                     <h4 class="card-title">مرحله پنج</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
-                    @if(Auth::user()->level>=4)
+                    @if(Auth::user()->level>=5)
                         <a href="{{route('level',5)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
                 </div>
@@ -206,7 +206,7 @@
                 <div class="card-body">
                     <h4 class="card-title">مرحله شش</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
-                    @if(Auth::user()->level>=5)
+                    @if(Auth::user()->level>=6)
                         <a href="{{route('level',6)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
                 </div>
@@ -233,7 +233,7 @@
                 <div class="card-body">
                     <h4 class="card-title">مرحله هفت</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
-                    @if(Auth::user()->level>=6)
+                    @if(Auth::user()->level>=7)
                         <a href="{{route('level',7)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
                 </div>
@@ -260,7 +260,7 @@
                 <div class="card-body">
                     <h4 class="card-title">مرحله هشت</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
-                    @if(Auth::user()->level>=7)
+                    @if(Auth::user()->level>=8)
                         <a href="{{route('level',8)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
                 </div>
@@ -287,7 +287,7 @@
                 <div class="card-body">
                     <h4 class="card-title">مرحله نه</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
-                    @if(Auth::user()->level>=8)
+                    @if(Auth::user()->level>=9)
                         <a href="{{route('level',9)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
                 </div>

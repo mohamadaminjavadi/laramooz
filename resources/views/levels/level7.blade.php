@@ -135,7 +135,7 @@
                     </div>
             </div>
             <!-- e -->
-            <div class="test-link"><a href="{{route('exam7')}}">امتحان بخش هفتم</a></div>
+            <div class="test-link"><a href="{{route('exam',7)}}">امتحان بخش هفتم</a></div>
             <!-- ee -->
         </div>
     </body>

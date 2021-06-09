@@ -24,7 +24,7 @@
                     @endif
                 </div>
                 <div dir="ltr">
-                    <a href="dashboard" class="btn btn-primary" >بازگشت به خانه</a>
+                    <a href="{{route('dashboard')}}" class="btn btn-primary" >بازگشت به خانه</a>
                 </div>
                 
             </div>

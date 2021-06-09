@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\testModel;
 use App\Models\User;
+use App\Http\Controllers\userController;
 use Auth;
 
 class testController extends Controller
@@ -109,10 +110,22 @@ class testController extends Controller
     }
 
     public function returnLevel(Request $request, $data){
-        return view('levels/level'.$data);
+        $user=User::find(Auth::user()->id);
+        if($user->level >= $data ){
+            return view('levels/level'.$data);
+        }
+        else{
+            return redirect()->route('dashboard');
+        }
     }
     public function returnExam(Request $request,$data){
-        return view('exams/exam'.$data);
+        $user=User::find(Auth::user()->id);
+        if($user->level >= $data ){
+            return view('exams/exam'.$data);
+        }
+        else{
+            return redirect()->route('dashboard');
+        }
     }
 
 
