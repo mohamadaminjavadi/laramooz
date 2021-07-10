@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\testModel;
+use App\Models\answer;
 use App\Models\User;
 use App\Http\Controllers\userController;
 use Auth;
@@ -15,17 +16,8 @@ class testController extends Controller
         // $request->input('sth'); this is how you get what user posted
 
         // getting the key of answers from db
-        $question = testModel::find($request->input('examnumber'));
-        $key_answers=$question['anum'];
+        $key_answers = answer::where('test_id',$request->input('examnumber'))->select('true_answer')->get();
 
-        // count of key of answers (for farther operations)
-        $key_answers_temp = $key_answers;
-        $countOfKey=0;
-        while ($key_answers_temp>=1){
-            $key_answers_temp=abs($key_answers_temp/10);
-            $countOfKey+=1;
-        }
-        
         // generating user answers array
         for ($i=0;$i<count($request->input())-2;$i++){
             $k=$i+1;
@@ -36,14 +28,14 @@ class testController extends Controller
         $true_answers=0;
         $wrong_answers=0;
         for ($j=0; $j<=count($user_answers)-1;$j++){
-            if ($user_answers[$j]==$key_answers[$j]){
+            if ($user_answers[$j]==$key_answers[$j]->true_answer){
                 $true_answers+=1;
             }
             else{
                 $wrong_answers+=1;
             }
         }
-        $score = round(($true_answers / $countOfKey) * 100 , 2);
+        $score = round(($true_answers / count($key_answers)) * 100 , 2);
         $examnumber = $request->input('examnumber');
 
         // pass or fail the exam
@@ -94,6 +86,7 @@ class testController extends Controller
             $numbers=explode('.',number_format($data,1));
             $examNumber=(int)$numbers[0];
             $questionNumber=(int)$numbers[1];
+            
             $exam=testModel::find($examNumber);
             $answer=$exam->anum[$questionNumber-1];
 

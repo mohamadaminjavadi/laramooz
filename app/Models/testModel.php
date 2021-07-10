@@ -9,7 +9,7 @@ use App\Http\Controllers\userController;
 class testModel extends Model
 {
     protected $casts=[
-        'answers'=>'array'
+        'true_answer'=>'array'
     ];
     use HasFactory;
     protected $table = 'test';
@@ -17,6 +17,10 @@ class testModel extends Model
 
     public function users(){
         return $this->belongsToMany(User::class, 'examxscore', 'exam_id', 'user_id');
+    }
+
+    public function answers(){
+        return $this->HasMany(answer::class, 'test_id');
     }
 
     public static function leveluper($user,$score,$examnumber){
