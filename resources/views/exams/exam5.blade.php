@@ -38,11 +38,6 @@
                             Route::get('/user', 'UserController')[show];
                             </lable> <br>
 
-                            <input type="radio" name="answer1" value="4">
-                            <lable for="answer1">
-                            Route::get('/user', 'UserController')->show();
-                            </lable> <br><br>
-
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
                             <a href="{{route('show_answer',5.1)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
@@ -64,11 +59,6 @@
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
-                            <lable for="answer2">
-                            هیچ فرقی با کنترلر های دیگر ندارد
-                            </lable> <br>
-
-                            <input type="radio" name="answer2" value="4">
                             <lable for="answer2">
                             وقتی استفاده میشود که به چندین متد در یک کنترلر نیاز داشته باشیم
                             </lable> <br><br>
@@ -92,11 +82,6 @@
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="3">
-                            <lable for="answer3">
-                            composer require laravel/controller --resource
-                            </lable><br/>
-
-                            <input type="radio" name="answer3" value="4">
                             <lable for="answer3">
                             php artisan make:controller name --resource
                             </lable><br/><br>

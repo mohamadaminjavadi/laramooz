@@ -29,18 +29,13 @@
 
                             <input type="radio" name="answer1" value="2">
                             <lable for="answer1">
-                             ساخت خودکار جداول دیتابیس
-                             </lable> <br>
+                            همه موارد
+                            </lable> <br><br>
 
                             <input type="radio" name="answer1" value="3">
                             <lable for="answer1">
-                            کاربری راحت تر
-                            </lable> <br>
-
-                            <input type="radio" name="answer1" value="4">
-                            <lable for="answer1">
-                            همه موارد
-                            </lable> <br><br>
+                             ساخت خودکار جداول دیتابیس
+                             </lable> <br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
@@ -52,25 +47,21 @@
                             2- اگر بخواهیم یک فیلد، مقدار تکراری نداشته باشد، در میگریشن از چه دستوری استفاده میکنیم؟
                             </p>
 
+                            
                             <input type="radio" name="answer2" value="1">
-                            <lable for="answer2"> 
-                            unique()
+                            <lable for="answer2">
+                            no-repeat()
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="2">
-                            <lable for="answer2">
-                            no-repeat()
+                            <lable for="answer2"> 
+                            unique()
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">
                             only()
                             </lable> <br>
-
-                            <input type="radio" name="answer2" value="4">
-                            <lable for="answer2">
-                            هیچ کدام
-                            </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
                             <a href="{{route('show_answer',9.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
@@ -87,19 +78,14 @@
 
                             <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
-                            php artisan migrate:refresh
+                            php artisan migrate
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
-                            php artisan migrate
+                            php artisan migrate:refresh
                             </lable><br/>
-
-                            <input type="radio" name="answer3" value="4">
-                            <lable for="answer3">
-                            php artisan cache:clear
-                            </lable><br/><br>
-
+                            
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
                             <a href="{{route('show_answer',9.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>

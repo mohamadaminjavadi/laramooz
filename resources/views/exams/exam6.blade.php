@@ -38,11 +38,6 @@
                             چک کردن هویت کاربر
                             </lable> <br>
 
-                            <input type="radio" name="answer1" value="4">
-                            <lable for="answer1">
-                            نمایش پیغام خطا
-                            </lable> <br><br>
-
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
                             <a href="{{route('show_answer',6.1)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
@@ -54,24 +49,19 @@
                             </p>
 
                             <input type="radio" name="answer2" value="1">
-                            <lable for="answer2"> 
-                            ایندکس صفرم همه خانه ها ازین آرایه
+                            <lable for="answer2">
+                            خانه صفرم آرایه
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="2">
-                            <lable for="answer2">
-                            خانه صفرم آرایه
+                            <lable for="answer2"> 
+                            ایندکس صفرم همه خانه ها ازین آرایه
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">
                             آرایه ضربدر صفر
                             </lable> <br>
-
-                            <input type="radio" name="answer2" value="4">
-                            <lable for="answer2">
-                            هیچ کدام
-                            </lable> <br><br>
 
                             <input hidden type="radio" name="answer2" value="5" checked="checked">
                             <a href="{{route('show_answer',6.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
@@ -88,18 +78,15 @@
 
                             <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
-                            public function createBlog(CreateBlog) {….}
+                            public function createBlog(CreateBlog $request) {….}
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
-                            public function createBlog(CreateBlog $request) {….}
+                            public function createBlog(CreateBlog) {….}
                             </lable><br/>
 
-                            <input type="radio" name="answer3" value="4">
-                            <lable for="answer3">
-                            public function createBlog($request) {….}
-                            </lable><br/><br>
+                          
 
                             <input hidden type="radio" name="answer3" value="5" checked="checked">
                             <a href="{{route('show_answer',6.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>

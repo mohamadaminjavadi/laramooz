@@ -38,11 +38,6 @@
                             راه اندازی سرور مجازی
                             </lable> <br>
 
-                            <input type="radio" name="answer1" value="4">
-                            <lable for="answer1">
-                            نصب پروژه روی کامپیوتر
-                            </lable> <br><br>
-
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
                             
                             <a href="{{route('show_answer',1.1)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
@@ -54,24 +49,19 @@
                             </p>
 
                             <input type="radio" name="answer2" value="1">
-                            <lable for="answer2"> 
-                            مجموعه ای از دستورات استفاده از لاراول را در دل خود جای داده است
+                            <lable for="answer2">
+                            تابعی برای متوقف کردن روند برنامه است
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="2">
-                            <lable for="answer2">
-                            تابعی برای متوقف کردن روند برنامه است
+                            <lable for="answer2"> 
+                            مجموعه ای از دستورات استفاده از لاراول را در دل خود جای داده است
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">
                             یک نوع سرور مجازی است
                             </lable> <br>
-
-                            <input type="radio" name="answer2" value="4">
-                            <lable for="answer2">
-                            هیچ کدام
-                            </lable> <br><br>
 
                             <input hidden type="radio" name="answer2" value="5" checked="checked">
                             <a href="{{route('show_answer',1.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
@@ -81,25 +71,22 @@
                             <p class="question">
                             3- هنگام سرو کردن پروژه روی سرور لوکال، آدرس آی پی برای دسترسی به پروژه کدام است؟
                             </p>
-                            <input type="radio" name="answer3" value="1">
-                            <lable for="answer3">
-                            127.0.0.1
-                            </lable><br/>
 
-                            <input type="radio" name="answer3" value="2">
+                            <input type="radio" name="answer3" value="1">
                             <lable for="answer3">
                             192.168.1.1
                             </lable><br/>
 
-                            <input type="radio" name="answer3" value="3">
+                            <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
                             217.150.160.1
                             </lable><br/>
 
-                            <input type="radio" name="answer3" value="4">
+                            
+                            <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
-                            152.170.30.90
-                            </lable><br/><br>
+                            127.0.0.1
+                            </lable><br/>
 
                             <input hidden type="radio" name="answer3" value="5" checked="checked">
                             <a href="{{route('show_answer',1.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>

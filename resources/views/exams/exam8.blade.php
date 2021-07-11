@@ -24,24 +24,18 @@
 
                             <input type="radio" name="answer1" value="1">
                             <lable for="answer1">
-                            php make model name
-                            </lable><br>
-
+                             php artisan make:model name
+                             </lable> <br>
 
                             <input type="radio" name="answer1" value="2">
                             <lable for="answer1">
-                             php artisan make:model name
-                             </lable> <br>
+                            php make model name
+                            </lable><br>
 
                             <input type="radio" name="answer1" value="3">
                             <lable for="answer1">
                             composer reqire laravel/model name
                             </lable> <br>
-
-                            <input type="radio" name="answer1" value="4">
-                            <lable for="answer1">
-                            npm install model name
-                            </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
@@ -68,11 +62,6 @@
                             فیلد ایندکس
                             </lable> <br>
 
-                            <input type="radio" name="answer2" value="4">
-                            <lable for="answer2">
-                            هیچ کدام
-                            </lable> <br><br>
-
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
                             <a href="{{route('show_answer',8.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
@@ -95,11 +84,6 @@
                             <lable for="answer3">
                             clock
                             </lable><br/>
-
-                            <input type="radio" name="answer3" value="4">
-                            <lable for="answer3">
-                            datetime
-                            </lable><br/><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
                             <a href="{{route('show_answer',8.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>

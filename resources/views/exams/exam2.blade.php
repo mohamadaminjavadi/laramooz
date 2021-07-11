@@ -24,24 +24,18 @@
 
                             <input type="radio" name="answer1" value="1">
                             <lable for="answer1">
-                            model, virtual, counter
-                            </lable><br>
-
+                             model, view, controller
+                             </lable> <br>
 
                             <input type="radio" name="answer1" value="2">
                             <lable for="answer1">
-                             model, view, controller
-                             </lable> <br>
+                            model, virtual, counter
+                            </lable><br>
 
                             <input type="radio" name="answer1" value="3">
                             <lable for="answer1">
                             message, vector, critical
                             </lable> <br>
-
-                            <input type="radio" name="answer1" value="4">
-                            <lable for="answer1">
-                            mask, var, carpet
-                            </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
@@ -68,11 +62,6 @@
                             مسیریابی
                             </lable> <br>
 
-                            <input type="radio" name="answer2" value="4">
-                            <lable for="answer2">
-                            هوش مصنوعی
-                            </lable> <br><br>
-
                             <input hidden type="radio" name="answer2" value="5" checked="checked">
                             <a href="{{route('show_answer',2.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
@@ -81,25 +70,21 @@
                             <p class="question">
                             ویو مربوط به کدام بخش از پروژه است؟
                             </p>
+
                             <input type="radio" name="answer3" value="1">
                             <lable for="answer3">
-                            فرانت اند
+                            دیتابیس
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
-                            دیتابیس
+                            فرانت اند
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
                             مسیریابی
                             </lable><br/>
-
-                            <input type="radio" name="answer3" value="4">
-                            <lable for="answer3">
-                            هوش مصنوعی
-                            </lable><br/><br>
 
                             <input hidden type="radio" name="answer3" value="5" checked="checked">
                             <a href="{{route('show_answer',2.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>

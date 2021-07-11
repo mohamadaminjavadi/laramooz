@@ -30,9 +30,11 @@ class testController extends Controller
         for ($j=0; $j<=count($user_answers)-1;$j++){
             if ($user_answers[$j]==$key_answers[$j]->true_answer){
                 $true_answers+=1;
+                $transcript[$j]="صحیح";
             }
             else{
                 $wrong_answers+=1;
+                $transcript[$j]="غلط";
             }
         }
         $score = round(($true_answers / count($key_answers)) * 100 , 2);
@@ -44,12 +46,14 @@ class testController extends Controller
             $this->addscore($user_id,$score,$examnumber);
             $data["success"]=true;
             $data["score"]=$score;
+            $data["transcript"]=$transcript;
             return view('exams/score',compact('data'));
         }
         else{
             $this->addscore($user_id,$score,$examnumber);
             $data["success"]=false;
             $data["score"]=$score;
+            $data["transcript"]=$transcript;
             return view('exams/score',compact('data'));
         }
     }

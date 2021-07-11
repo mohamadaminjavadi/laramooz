@@ -19,29 +19,24 @@
                         <!-- q1 -->
                         <div class="question-container">
                             <p class="question">
-                            1- کدام یک از وظایف میدولور میباشد
+                            1- کدام یک از وظایف میدولور میباشد؟
                             </p>
 
                             <input type="radio" name="answer1" value="1">
                             <lable for="answer1">
-                            محاسبه قیمت در وبسایت های فروشگاهی
-                            </lable><br>
-
+                             اعمال فیلتر بر روی درخواست های کاربر
+                            </lable> <br>
 
                             <input type="radio" name="answer1" value="2">
                             <lable for="answer1">
-                             اعمال فیلتر بر روی درخواست های کاربر
-                            </lable> <br>
+                            محاسبه قیمت در وبسایت های فروشگاهی
+                            </lable><br>
 
                             <input type="radio" name="answer1" value="3">
                             <lable for="answer1">
                             کامپایل کردن پروژه
                             </lable> <br>
 
-                            <input type="radio" name="answer1" value="4">
-                            <lable for="answer1">
-                            نوشتن متن هشدار برای کاربر
-                            </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
@@ -62,21 +57,15 @@
 
                             <input type="radio" name="answer2" value="2">
                             <lable for="answer2">
-                            Route::get('/', function () { // })->middleware('first', 'second');
-                            </lable> <br>
-
-                            <input type="radio" name="answer2" value="3">
-                            <lable for="answer2">
-                            Route::get('admin/profile', function () {<br>
-                            //<br>
-                            })->middleware('auth');
-                            </lable> <br>
-
-                            <input type="radio" name="answer2" value="4">
-                            <lable for="answer2">
                             همه موارد
                             </lable> <br><br>
 
+                            <input type="radio" name="answer2" value="3">
+                            <lable for="answer2">
+                            Route::get('/', function () { // })->middleware('first', 'second');
+                            </lable> <br>
+
+                            
                             <input hidden type="radio" name="answer2" value="5" checked="checked">
                             <a href="{{route('show_answer',4.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
                         </div>
@@ -85,25 +74,21 @@
                             <p class="question">
                             دستور ساخت میدلور کدام یک از موارد زیر است
                             </p>
+                            
                             <input type="radio" name="answer3" value="1">
                             <lable for="answer3">
-                            php artisan make:middleware name
+                            php artisan create:middleware name
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
-                            php artisan create:middleware name
+                            php artisan make:middleware name
                             </lable><br/>
 
                             <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
                             composer require laravel/middleware
                             </lable><br/>
-
-                            <input type="radio" name="answer3" value="4">
-                            <lable for="answer3">
-                            npm install middleware --save
-                            </lable><br/><br>
 
                             <input hidden type="radio" name="answer3" value="5" checked="checked">
                             <a href="{{route('show_answer',4.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>

@@ -24,24 +24,18 @@
 
                             <input type="radio" name="answer1" value="1">
                             <lable for="answer1">
-                            معنی دار کردن یو آر ال
-                            </lable><br>
-
+                             انجام عمل روی داده های کاربر
+                            </lable> <br>
 
                             <input type="radio" name="answer1" value="2">
                             <lable for="answer1">
-                             انجام عمل روی داده های کاربر
-                            </lable> <br>
+                            معنی دار کردن یو آر ال
+                            </lable><br>
 
                             <input type="radio" name="answer1" value="3">
                             <lable for="answer1">
                             افزایش سرعت برنامه
                             </lable> <br>
-
-                            <input type="radio" name="answer1" value="4">
-                            <lable for="answer1">
-                            تولید داده برای دیتابیس
-                            </lable> <br><br>
 
                             <input hidden type="radio" name="answer1" value="5" checked="checked">
 
@@ -54,24 +48,19 @@
                             </p>
 
                             <input type="radio" name="answer2" value="1">
-                            <lable for="answer2"> 
-                            name()
+                            <lable for="answer2">
+                            pointer()
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="2">
-                            <lable for="answer2">
-                            pointer()
+                            <lable for="answer2"> 
+                            name()
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">
                             point()
                             </lable> <br>
-
-                            <input type="radio" name="answer2" value="4">
-                            <lable for="answer2">
-                            return()
-                            </lable> <br><br>
 
                             <input hidden type="radio" name="answer2" value="5" checked="checked">
                             <a href="{{route('show_answer',3.2)}}" target="_blank" class="btn btn-dark">راهنمایی</a>
@@ -81,25 +70,21 @@
                             <p class="question">
                             برای تعیین پیشوند در روت ها از کدام تابع استفاده میکنیم؟
                             </p>
+                            
                             <input type="radio" name="answer3" value="1">
-                            <lable for="answer3">
-                            prefix()
-                            </lable><br/>
-
-                            <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
                             post()
                             </lable><br/>
 
-                            <input type="radio" name="answer3" value="3">
+                            <input type="radio" name="answer3" value="2">
                             <lable for="answer3">
                             get()
                             </lable><br/>
 
-                            <input type="radio" name="answer3" value="4">
+                            <input type="radio" name="answer3" value="3">
                             <lable for="answer3">
-                            namespace()
-                            </lable><br/><br>
+                            prefix()
+                            </lable><br/>
 
                             <input hidden type="radio" name="answer3" value="5" checked="checked">
                             <a href="{{route('show_answer',3.3)}}" target="_blank" class="btn btn-dark">راهنمایی</a>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,aAAa,EAAE,eAAe;CACjC",
+    "sources": [
+        "score.scss"
+    ],
+    "names": [],
+    "file": "score.css"
+}
