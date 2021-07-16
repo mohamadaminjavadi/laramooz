@@ -8,6 +8,7 @@ use App\Models\answer;
 use App\Models\User;
 use App\Http\Controllers\userController;
 use Auth;
+use App\Events\newMsg;
 
 class testController extends Controller
 {
@@ -27,6 +28,7 @@ class testController extends Controller
         // counting score
         $true_answers=0;
         $wrong_answers=0;
+
         for ($j=0; $j<=count($user_answers)-1;$j++){
             if ($user_answers[$j]==$key_answers[$j]->true_answer){
                 $true_answers+=1;
@@ -81,6 +83,10 @@ class testController extends Controller
                 
             }
         }
+        $data['phone']=Auth::user()->phone;
+        $data['score']=$score;
+        $data['name']=Auth::user()->name;
+        event(new newMsg($data));
     }
 
     public function showAnswer(Request $request,$data){

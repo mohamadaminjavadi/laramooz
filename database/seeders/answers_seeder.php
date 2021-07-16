@@ -21,7 +21,7 @@ class answers_seeder extends Seeder
                         [
                         'test_id'=>$i,
                         'question_id'=>$k,
-                        'true_answer'=>floor($j[$k/2])
+                        'true_answer'=>floor(($k+1)/2)
                         ]
                     );
                 }

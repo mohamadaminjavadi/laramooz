@@ -49,16 +49,16 @@
                             </p>
 
                             <input type="radio" name="answer2" value="1">
+                            <lable for="answer2">
+                            همه موارد
+                            </lable> <br><br>
+
+                            <input type="radio" name="answer2" value="2">
                             <lable for="answer2"> 
                             Route::middleware(['auth:sanctum', 'verified'])->get('/sth',function(){<br>
                                 //<br>
                             });
                             </lable> <br>
-
-                            <input type="radio" name="answer2" value="2">
-                            <lable for="answer2">
-                            همه موارد
-                            </lable> <br><br>
 
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">

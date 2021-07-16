@@ -49,15 +49,15 @@
                             </p>
 
                             <input type="radio" name="answer2" value="1">
-                            <lable for="answer2">
-                            خانه صفرم آرایه
-                            </lable> <br>
-
-                            <input type="radio" name="answer2" value="2">
                             <lable for="answer2"> 
                             ایندکس صفرم همه خانه ها ازین آرایه
                             </lable> <br>
 
+                            <input type="radio" name="answer2" value="2">
+                            <lable for="answer2">
+                            خانه صفرم آرایه
+                            </lable> <br>
+                            
                             <input type="radio" name="answer2" value="3">
                             <lable for="answer2">
                             آرایه ضربدر صفر

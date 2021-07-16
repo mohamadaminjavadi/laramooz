@@ -48,13 +48,13 @@
                             </p>
 
                             <input type="radio" name="answer2" value="1">
-                            <lable for="answer2"> 
-                            فرانت اند
+                            <lable for="answer2">
+                            دیتابیس
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="2">
-                            <lable for="answer2">
-                            دیتابیس
+                            <lable for="answer2"> 
+                            فرانت اند
                             </lable> <br>
 
                             <input type="radio" name="answer2" value="3">
