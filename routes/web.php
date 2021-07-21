@@ -38,3 +38,9 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/exam/submitexam',$addres
 
 // point
 Route::middleware(['auth:sanctum', 'verified'])->get('show_answer/{data}',$address.'@showAnswer',with('data'))->name('show_answer');
+
+// comments
+$address='App\Http\Controllers\commentController';
+Route::middleware(['auth:sanctum', 'verified'])->post('/level/{data}/addcomment',$address.'@add')->name('add_comment');
+Route::middleware(['auth:sanctum', 'verified'])->post('/level/{data}/editcomment',$address.'@edit')->name('edit_comment');
+Route::middleware(['auth:sanctum', 'verified'])->post('/level/{data}/deletecomment',$address.'@delete')->name('delete_comment');

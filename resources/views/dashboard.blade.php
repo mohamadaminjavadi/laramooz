@@ -31,7 +31,7 @@
                     }
                     for(i=0;i<=level;i++){
                         if(level<=5){
-                            $(".card").eq(i+3).removeClass("locked")
+                            $(".card").eq(i+2).removeClass("locked")
                         }
                     }
                 }
@@ -46,7 +46,9 @@
             @if($data['vip']==1)
                 <p class="vip">VIP: activated</p>
             @else
-            <a href="/govip" class="vip" target="_blank">purchase VIP</a>
+            <a href="/govip" class="vip" target="_blank">
+                خرید اکانت VIP
+            </a>
             @endif
 
         @endif
@@ -73,7 +75,9 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله یک</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    <p class="card-text">
+                        شروع کار با لاراول. در این مرحله نحوه تنظیم اینوایرمنت لازم برای شروع کار به شما آموزش داده می شود.
+                    </p>
                     <a href="{{route('level',1)}}" class="btn btn-primary">مشاهده مطالب</a>
                 </div>
             </div>
@@ -98,7 +102,8 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله دو</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    در این مرحله کلیت معماری MVC به شما آموزش داده می شود.
+                    <br><br>
                     @if(Auth::user()->level>=2)
                         <a href="{{route('level',2)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
@@ -125,7 +130,8 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله سه</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    در این مرحله در مورد روت ها و نحوه استفاده از آنها به شما آموزش داده می شود.
+                    <br>
                     @if(Auth::user()->level>=3)
                         <a href="{{route('level',3)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
@@ -152,7 +158,8 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله چهار</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    در این مرحله در مورد میدلور ها و چگونگی استفاده از آنها به شما آموزش داده می شود.
+                    <br>
                     @if(Auth::user()->level>=4)
                         <a href="{{route('level',4)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
@@ -178,7 +185,8 @@
                 <h1>5</h1></div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله پنج</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    در این مرحله در مورد کنترلر ها و نحوه استفاده از آنها به شما آموزش داده می شود.
+                    <br>
                     @if(Auth::user()->level>=5)
                         <a href="{{route('level',5)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
@@ -205,7 +213,8 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله شش</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    در این مرحله در مورد ولیدیشن داده ها به شما آموزش داده می شود.
+                    <br>
                     @if(Auth::user()->level>=6)
                         <a href="{{route('level',6)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
@@ -232,7 +241,8 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله هفت</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    در این مرحله در مورد بخش ویو و فرانت اند پروژه به شما آموزش داده می شود.
+                    <br>
                     @if(Auth::user()->level>=7)
                         <a href="{{route('level',7)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
@@ -259,7 +269,8 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله هشت</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    در این مرحله در مورد مدل و کار با دیتابیس به شما آموزش داده می شود.
+                    <br>
                     @if(Auth::user()->level>=8)
                         <a href="{{route('level',8)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif
@@ -286,7 +297,8 @@
                 </div>
                 <div class="card-body">
                     <h4 class="card-title">مرحله نه</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quis ipsa corporis fugit laborum, quos, reiciendis magni facere numquam.</p>
+                    در این مرحله در مورد میگریشن ها و نحوه استفاده از آنها به شما آموزش داده می شود.
+                    <br>
                     @if(Auth::user()->level>=9)
                         <a href="{{route('level',9)}}" class="btn btn-primary">مشاهده مطالب</a>
                     @endif

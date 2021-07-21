@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\testModel;
 use App\Models\answer;
 use App\Models\User;
+use App\Models\comments;
 use App\Http\Controllers\userController;
 use Auth;
 use App\Events\newMsg;
@@ -97,9 +98,8 @@ class testController extends Controller
             $examNumber=(int)$numbers[0];
             $questionNumber=(int)$numbers[1];
             
-            $exam=testModel::find($examNumber);
-            $answer=$exam->anum[$questionNumber-1];
-
+            $answerlist=answer::where('test_id',$examNumber)->where('question_id',$questionNumber)->pluck('true_answer');
+            $answer=$answerlist[0];
             $user->point=$point-5;
             $user->save();
             
@@ -114,6 +114,7 @@ class testController extends Controller
 
     public function returnLevel(Request $request, $data){
         $user=User::find(Auth::user()->id);
+        $comments=comments::where('post_id',$data)->get();
         if($user->level >= $data ){
             return view('levels/level'.$data);
         }

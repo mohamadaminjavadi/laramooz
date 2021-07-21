@@ -9,12 +9,12 @@ body .contain {
 body .contain .article-title {
   font-size: 20pt;
   padding: 10px 20px 20px 0px;
-  background-color: yellowgreen;
+  background-color: #f29559;
   border-radius: 5px;
 }
 
 body .contain .paragraph-container {
-  border: 1.5px #c4c2c2 solid;
+  border: 1.5px #b8b08d solid;
   border-radius: 10px;
   margin: 20px 0px 20px 0px;
   padding: 10px;
@@ -24,12 +24,13 @@ body .contain .paragraph-container {
 body .contain .paragraph-container .paragraph-title {
   font-size: 17pt;
   padding: 5px 10px 5px 0px;
-  background: rgba(156, 154, 154, 0.3);
+  background: rgba(156, 154, 154, 0.5);
 }
 
 body .contain .note-container {
   border-top: 1px dotted goldenrod;
   border-bottom: 1px solid goldenrod;
+  background: rgba(190, 196, 136, 0.6);
   margin: 50px 0 0 0;
 }
 
@@ -39,8 +40,8 @@ body .contain .note-container {
 
 .code {
   direction: ltr;
-  background: #272750;
-  color: whitesmoke;
+  background: rgba(40, 56, 69, 0.5);
+  color: #181717;
   padding-left: 20px;
   border-radius: 5px;
   margin: 15px 0 15px 0;
@@ -55,7 +56,7 @@ body .contain .note-container {
 
 .test-link a {
   padding: 10px 20px 10px 20px;
-  background: #b0f745;
+  background: #9cc5a1;
   color: black;
   font-size: 14pt;
   text-decoration: none;

@@ -22,6 +22,9 @@ class User extends Authenticatable
     public function tests(){
         return $this->belongsToMany(testModel::class, 'examxscore' , 'user_id', 'exam_id');
     }
+    public function comments(){
+        return $this->hasMany(comments::class, 'user_id', 'id');
+    }
 
     /**
      * The attributes that are mass assignable.

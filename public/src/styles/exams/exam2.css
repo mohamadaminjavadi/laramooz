@@ -6,7 +6,7 @@
 }
 
 .form {
-  background: whitesmoke;
+  background: rgba(73, 88, 103, 0.3);
 }
 
 .form .question-container {
@@ -19,7 +19,7 @@
 }
 
 .leftside {
-  background: #e0dede;
+  background: #577399;
 }
 
 .leftside .point {

@@ -5,13 +5,14 @@
 .card .card-img-top {
   border: 0px solid black;
   text-align: center;
-  background: greenyellow;
+  background: #577399;
   height: 200px;
 }
 
 .card .card-img-top .star {
-  background: blueviolet;
+  background: #495867;
   color: white;
+  padding-top: 7px;
 }
 
 .card .card-img-top h1 {
@@ -20,7 +21,7 @@
 }
 
 .locked .card-img-top {
-  background: red;
+  background: #fe5f55;
 }
 
 .locked a {
@@ -54,14 +55,18 @@
 }
 
 .space .vip {
-  background: gold;
-  height: 23px;
+  background: #f2d492;
+  text-decoration: none;
+  color: black;
   margin-right: 20px;
   margin-top: 10px;
   margin-left: 10px;
   font-size: 12pt;
-  text-decoration: none;
-  color: black;
+  height: 30px;
+  width: 120px;
+  padding-right: 16px;
+  padding-top: 3px;
+  border-radius: 5px;
 }
 
 body {
@@ -102,8 +107,16 @@ body {
      object-fit: cover;
 }
 
+.swiper-button-next {
+  color: #216869;
+}
+
 .swiper-button-next:hover {
   width: 10px;
+}
+
+.swiper-button-prev {
+  color: #216869;
 }
 
 .swiper-button-prev:hover {

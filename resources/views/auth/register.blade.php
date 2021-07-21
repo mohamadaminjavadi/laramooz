@@ -21,7 +21,7 @@
 
             <div class="mt-4" dir="rtl">
                 <x-jet-label for="phone" value="{{ __('شماره موبایل: (مثال 989191234567)') }}" />
-                <x-jet-input id="phone" class="block mt-1 w-full" pattern="[9][8][9][0-9]{9}" type="phone" name="phone" :value="old('phone')" required />
+                <x-jet-input id="phone" style="border:rgb(221, 216, 216) 1px solid;" class="block mt-1 w-full" pattern="[9][8][9][0-9]{9}" type="phone" name="phone" :value="old('phone')" required />
             </div>
 
             

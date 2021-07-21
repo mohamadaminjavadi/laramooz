@@ -5,11 +5,11 @@ body{
         .article-title{
             font-size:20pt;
             padding: 10px 20px 20px 0px;
-            background-color: yellowgreen;
+            background-color: #f29559;
             border-radius: 5px;
         }
         .paragraph-container{
-            border: 1.5px rgb(196, 194, 194) solid;
+            border: 1.5px #b8b08d solid;
             border-radius:10px;
             margin:20px 0px 20px 0px;
             
@@ -18,12 +18,13 @@ body{
             .paragraph-title{
                 font-size:17pt;
                 padding: 5px 10px 5px 0px;
-                background:rgba(156, 154, 154, 0.3);
+                background:rgba(156, 154, 154, 0.5);
             }
         }
         .note-container{
             border-top: 1px dotted goldenrod;
             border-bottom: 1px solid goldenrod;
+            background:rgba(190, 196, 136, 0.6);
             margin:50px 0 0 0;
         }
     }
@@ -33,8 +34,8 @@ body{
 }
 .code{
     direction:ltr;
-    background:rgb(39, 39, 80);
-    color:whitesmoke;
+    background:rgba(40, 56, 69,0.5);
+    color:rgb(24, 23, 23);
     padding-left: 20px;
     border-radius:5px;
     margin: 15px 0 15px 0;
@@ -47,7 +48,7 @@ body{
     margin-top:40px;
     a{
         padding: 10px 20px 10px 20px;
-        background:rgb(176, 247, 69);
+        background: #9cc5a1;
         color:black;
         font-size:14pt;
         text-decoration: none;
